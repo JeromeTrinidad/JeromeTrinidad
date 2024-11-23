@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Photography and lifestyle portfolio">
+    <title>My Photography</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        header {
+            background: #1f1f1f;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2em;
+            font-family: 'Roboto', sans-serif;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-size: 1em;
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 10px;
+            background: #1f1f1f;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #ccc;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        nav ul li a:hover {
+            color: #DAA520; /* Highlight on hover */
+        }
+
+        .banner {
+            background: url(https://i.pinimg.com/originals/65/3a/b9/653ab9dd1ef121f163c484d03322f1a9.jpg) no-repeat center center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            animation: slideIn 1.5s ease; /* Exaggerated transition */
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .banner h2 {
+            font-size: 3em;
+            font-weight: 500;
+            color: #ffffff; /* Name in white */
+            margin-bottom: 20px;
+            transition: transform 0.5s ease; /* Transition for the name */
+        }
+
+        .banner h2:hover {
+            transform: scale(1.05); /* Subtle scale effect on hover */
+        }
+
+        .container {
+            padding: 30px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: rgba(18, 18, 18, 0.8);
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for professionalism */
+        }
+
+        h2 {
+            border-bottom: 2px solid #DAA520; /* Dark red line */
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 2em;
+            color: #DAA520; /* Dark red for section headings */
+        }
+
+        h3 {
+            margin-top: 20px;
+            color: #DAA520; /* Dark red for subheadings */
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow for images */
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Enhanced shadow on hover */
+        }
+
+        /* Table Styling */
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 30px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow for table */
+        }
+
+        table, th, td {
+            border: 1px solid #DAA520; /* Dark red for table lines */
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            background-color: #1f1f1f;
+            color: #fff;
+        }
+
+        th {
+            font-weight: 700;
+        }
+
+        td {
+            font-weight: 300;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #1f1f1f;
+            color: #ccc;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        footer p {
+            margin-top: 10px;
+        }
+
+        footer p:hover {
+            color: #fff;
+        }
+
+        /* Contact Form Styling */
+        .contact-form {
+            background-color: #1f1f1f;
+            padding: 20px;
+            border: 1px solid #DAA520; /* Dark red for form border */
+            max-width: 600px;
+            margin: 30px auto;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+        }
+
+        .contact-form h2 {
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .contact-form input, 
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #555;
+            border-radius: 4px;
+            background-color: #121212;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .contact-form button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Button transition */
+        }
+
+        .contact-form button:hover {
+            background-color: #555;
+        }
+
+        .contact-list {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            color: #ffffff; /* Contact info in white */
+        }
+
+        .contact-list h3 {
+            font-size: 1.3em;
+            font-weight: 500;
+            color: #ffffff; /* Contact info in white */
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Welcome to My Lifestyle</h1>
+        <p>Capturing moments through my lens</p>
+    </header>
+
+    <!-- Navigation Section -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#inquiries">Inquiries</a></li>
+        </ul>
+    </nav>
+
+    <!-- Banner Section -->
+    <section class="banner">
+        <h2>Jerome Trinidad</h2>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="container">
+        <h2>My Work</h2>
+        <div class="gallery">
+            <img src="/samples/picture1.jpg" alt="Photo 1">
+            <img src="/samples/picture2.jpg" alt="Photo 2">
+            <img src="/samples/picture3.jpg" alt="Photo 3">
+            <img src="/samples/picture4.jpg" alt="Photo 4">
+            <img src="/samples/picture5.jpg" alt="Photo 5">
+            <img src="/samples/picture6.jpg" alt="Photo 6">
+            <img src="/samples/picture7.jpg" alt="Photo 7">
+            <img src="/samples/picture8.jpg" alt="Photo 8">
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="container">
+        <h2>About Me</h2>
+        <p>My name is Frince Jerome Trinidad. I'm 20 years old, I was born in Macau but raised in Nueva Ecija, Philippines. I used to study Architecture before enrolling in Multimedia Arts. Most of my interests lie in Photography, Cinematography, Digital Arts, and Editing.</p>
+    </section>
+
+    <!-- Gallery Section (Without Heading) -->
+<section id="gallery" class="container">
+    <div class="gallery">
+        <img src="/samples/pic1.jpg" alt="Pic 1">
+        <img src="/samples/pic2.jpg" alt="Pic 2">
+        <img src="/samples/pic3.jpg" alt="Pic 3">
+        <img src="/samples/pic4.jpg" alt="Pic 4">
+        <img src="/samples/pic5.jpg" alt="Pic 5">
+        <img src="/samples/pic6.jpg" alt="Pic 6">
+        <img src="/samples/pic7.jpg" alt="Pic 7">
+        <img src="/samples/pic8.jpg" alt="Pic 8">
+        <img src="/samples/pic9.jpg" alt="Pic 9">
+        <img src="/samples/pic10.jpg" alt="Pic 10">
+        <img src="/samples/pic11.jpg" alt="Pic 11">
+        <img src="/samples/pic12.jpg" alt="Pic 12">
+        <img src="/samples/pic13.jpg" alt="Pic 13">
+        <img src="/samples/pic14.jpg" alt="Pic 14">
+        <img src="/samples/pic15.jpg" alt="Pic 15">
+        <img src="/samples/pic16.jpg" alt="Pic 16">
+    </div>
+</section>
+
+
+    <!-- Skills Section -->
+    <section id="skills" class="container">
+        <h2>Skills & Experience</h2>
+        <table>
+            <tr>
+                <th>EDUCATION</th>
+                <th>EXPERIENCE</th>
+                <th>SKILLS</th>
+                <th>AWARDS & CERTIFICATIONS</th>
+            </tr>
+            <tr>
+                <td>Bachelor of Multimedia Arts - Far Eastern University (2024 - 2027) <br> 
+                    Relevant coursework: Graphic Design, Video Production, Web Development, Digital Animation</td>
+                <td>Graphic Design Intern - ABC Studios (Dec 2025 - Jul 2027) <br>
+                    Freelance Video Editor (2024 - Present)</td>
+                <td>Adobe Creative Suite, 3D Modeling (Maya), HTML, CSS, JavaScript</td>
+                <td>Best Student Project (2025), Best Cinematography Project (2025), LEGO Robotics Coding Champion (2018)</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container">
+        <h2>Contact Me</h2>
+        <div class="contact-list">
+            <h3>Contact no.: 0929-312-4407</h3>
+            <h3>Facebook: Jerome Trinidad</h3>
+            <h3>Instagram: @_jerometrinidad</h3>
+        </div>
+    </section>
+
+    <!-- Inquiries Section -->
+    <section id="inquiries" class="container">
+        <h2>Inquiries</h2>
+        <div class="contact-form">
+            <h2>For more inquiries, you may drop your:</h2>
+            <form action="/submit" method="post">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name.." required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Your email.." required>
+
+                <label for="contact">Contact No.</label>
+                <input type="text" id="contact" name="contact" placeholder="Your contact number.." required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="Write your message here.." required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>2024 My Personal Website | Designed by Jerome</p>
+        <p>
+            <a href="https://facebook.com/JeromeTrinidad" target="_blank">Facebook</a> |
+            <a href="https://instagram.com/_jerometrinidad" target="_blank">Instagram</a>
+        </p>
+    </footer>
+</body>
+</html>
